@@ -1,0 +1,32 @@
+rss:
+  type: web
+  title: RSS - Wikipedia
+  url: https://en.wikipedia.org/wiki/RSS
+
+newsletter:
+  type: web
+  title: Newsletter - Wikipedia
+  url: https://en.wikipedia.org/wiki/Newsletter
+
+sleep:
+  type: book
+  title: 睡眠革命
+  publisher: 北京联合出版公司
+  date: 2017-6
+  affiliated:
+    - role: translator
+      names: 王敏
+  author: "[英] 尼克·利特尔黑尔斯"
+  page-total: 240
+  serial-number: 9787550299658
+
+stanford-sleep:
+  type: book
+  title: 斯坦福高效睡眠法
+  publisher: 文化发展出版社
+  author: "[日] 西野精治"
+  date: 2018-10
+  affiliated:
+    - role: translator
+      names: 君风竹
+  serial-number: 9787514223736 

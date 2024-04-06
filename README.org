@@ -29,13 +29,11 @@
 - 哲学尝试按照严格的逻辑形式，对各种观念给出自己理解后的解读
 
 * 建构
-本项目是由 [[https://typst.app/][Typst]] 写成，通过 GitHub Action 自动部署。
-
-Typst 泰裤辣！
+本项目是由 [[https://typst.app/][Typst]] 写成。 Typst 泰裤辣！
 
 安装 Typst 之后运行 ~build.sh~ ，里面只是一些编译操作。每个子目录是一个项目，项目的入口文件是 ~build.typ~.
 
-Release 大概每个月发布一次吧。
++=Release 大概每个月发布一次吧。+ 不会弄 Action 发版，有机会再研究。
 
 * Todo
 ** 元认知

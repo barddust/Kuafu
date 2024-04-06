@@ -47,4 +47,3 @@ jobs:
         with:
           artifacts: "Kuafu/*"
           token: ${{ secrets.GITHUB_TOKEN }}
-      

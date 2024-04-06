@@ -9,18 +9,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Set Timezone
-        run: sudo timedatectl set-timezone 'Asia/Shanghai'
+      - run: sudo timedatectl set-timezone 'Asia/Shanghai'
+      - uses: typst-community/setup-typst@v3
+      - uses: actions/checkout@v4
 
-      - name: Setup Typst
-        uses: typst-community/setup-typst@v3
+      - name: Setup fonts
+        run: |
+          mkdir fonts
+          wget https://github.com/lxgw/LxgwWenKai/releases/download/v1.320/lxgw-wenkai-v1.320.zip
+          unzip lxgw-wenkai-v1.320.zip
+          cp -r lxgw-wenkai-v1.320/* fonts
+          wget https://github.com/adobe-fonts/source-han-serif/releases/download/2.002R/09_SourceHanSerifSC.zip
+          unzip 09_SourceHanSerifSC.zip
+          cp -r OTF/SimplifiedChinese/* fonts
 
-      - name: Setup Font
-        uses: fontist/setup-fontist@v2
-      - run: fontist create-formula https://github.com/lxgw/LxgwWenKai/releases/download/v1.320/lxgw-wenkai-v1.320.zip
-      - run: fontist create-formula https://github.com/adobe-fonts/source-han-serif/releases/download/2.002R/09_SourceHanSerifSC.zip
-      - run: fontist list "source"
-      - run: fontist list "lxgw"
+      - run: ls ${{ github.workspace }}
+      - run: ls fonts
       
       # - name: Compile Files
-        # run: typst compile paper.typ paper.pdf
+      #   run: typst compile paper.typ paper.pdf

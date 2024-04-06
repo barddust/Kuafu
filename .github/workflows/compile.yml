@@ -39,7 +39,7 @@ jobs:
 
 
       - run: ls
-      - run: mv kuafu.zip Kuafu/
+      - run: mv Kuafu.zip Kuafu/
       - run: ls Kuafu
 
       - name: Upload Release

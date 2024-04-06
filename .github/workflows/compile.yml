@@ -21,20 +21,20 @@ jobs:
           wget https://github.com/adobe-fonts/source-han-serif/releases/download/2.002R/09_SourceHanSerifSC.zip
           unzip 09_SourceHanSerifSC.zip
           cp -r OTF/SimplifiedChinese/* fonts
-
-      - run: ls ${{ github.workspace }}
-      - run: ls fonts
-      - run: pwd
         
       - uses: actions/checkout@v4
       - run: TYPST_FONT_PATHS="$(pwd)/fonts" ./build.sh
+
+      - run: |
+          pwd
+          ls
 
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.5
         with:
           type: 'zip'
-          filename: 'kuafu.zip'
-          path: "Kuafu/"
+          filename: 'Kuafu.zip'
+          path: Kuafu
 
 
       - run: ls

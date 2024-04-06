@@ -9,17 +9,14 @@ echo "                                                            "
 
 ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 SRC_DIR="$ROOT_DIR/src"
-DOC_DIR="$ROOT_DIR/doc"
+DOC_DIR="$ROOT_DIR/Kuafu"
 
 function compile-proj() {
     PROJ=$1
     echo "Compiling project: ${PROJ} ..."
     
     INPUT="$SRC_DIR/$PROJ/build.typ"
-    OUTPUT_DIR="$DOC_DIR/$PROJ"
-    
-    mkdir -p $OUTPUT_DIR
-    OUTPUT="$OUTPUT_DIR/$PROJ.pdf"
+    OUTPUT="$DOC_DIR/$PROJ.pdf"
     
     typst compile --root $SRC_DIR $INPUT $OUTPUT
     echo "compiled: $INPUT -> $OUTPUT"

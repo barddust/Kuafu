@@ -27,4 +27,8 @@ jobs:
       - run: pwd
         
       - uses: actions/checkout@v4
-      - run: ./build.sh
+      - run: TYPST_FONT_PATHS="$(pwd)/fonts" ./build.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          path: doc/

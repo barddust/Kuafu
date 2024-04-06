@@ -1,9 +1,8 @@
 name: Compile typst to pdf
 on:
   push:
-    branches:
-      - main
-
+    tags:
+      - "v*"
 
 jobs:
   deploy:
@@ -36,14 +35,11 @@ jobs:
           type: 'zip'
           filename: 'Kuafu.zip'
           path: Kuafu
-
-
-      - run: ls
       - run: mv Kuafu.zip Kuafu/
-      - run: ls Kuafu
 
-      - name: Upload Release
-        uses: ncipollo/release-action@v1
+      - uses: marvinpinto/action-automatic-releases@latest
         with:
-          artifacts: "Kuafu/*"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            Kuafu/*

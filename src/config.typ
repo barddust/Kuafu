@@ -1,8 +1,11 @@
-#let serif = "Source Han Serif"
-#let sans = "Source Han Sans"
+#let serif = ("Spectral", "Source Han Serif")
+#let sans = "Source Han Sans CN"
 #let kai = "LXGW WenKai"
 #let default_author = "Bardust"
 #let page_height = 841.89pt
+#let math-font = "STIX Two Math"
+
+#let env-lang = state("lang","zh")
 
 #let cover(
   title: none,
@@ -48,9 +51,6 @@
   }
 )
 
-#let build_toc(tree) = {
-  
-}
 
 #let toc() = page(
   numbering: "I",
@@ -71,10 +71,14 @@
   }
 )
 
+
 #let init(
   doc,
 ) = {
-  set text(font: serif, lang: "zh")
+  show: set text(
+    font: serif,
+    lang: "zh",
+  )
   doc
 }
 
@@ -102,9 +106,15 @@
             pagebreak()
           }
         
-          if it.numbering != none [
-            第#counter(heading).get().at(0)章#h(1em)#it.body
-          ] else {
+          if it.numbering != none {
+            if env-lang.get() == "zh" [
+              第#counter(heading).get().at(0)章#h(1em)#it.body
+            ] else [
+              #text(size: 0.8em)[CHAPTER #counter(heading).get().at(0)]
+              #linebreak()
+              #it.body
+            ]
+          } else {
             it.body
           }
         }
@@ -117,6 +127,8 @@
   
   show quote: set text(font: kai)
   set quote(block: true)
+
+  show link: set text(fill: blue)
   
   counter(page).update(1)
   
@@ -132,6 +144,51 @@
   doc
 }
 
+
 #let reference() = [
   #bibliography("ref.yml") <reference>
 ]
+
+#let body(dir, chs) = {
+  if not dir.ends-with("/"){
+    dir = dir + "/"
+  }
+  
+  include dir + chs.at(0)
+  for ch in chs.slice(1) {
+    pagebreak()
+    include dir + ch
+  }
+
+}
+
+
+#let project(
+  subtitle: none,
+  bio: true,
+  title,
+  version,
+  par-dir,
+  chapter,
+) = {
+
+  show: init
+  
+  cover(
+    title: title,
+    subtitle: subtitle,
+    version: version,
+  )
+
+  toc()
+  
+  show: conf
+
+  body(
+    par-dir,
+    chapter)
+
+  if bio {
+    reference()
+  }
+}

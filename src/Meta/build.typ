@@ -1,21 +1,18 @@
 #{
-  import "/config.typ"
-  
-  show: config.init
+  import "/config.typ": project
 
-  config.cover(
-    title:"夸父：元认知",
-    version: "0.1",
+  project(
+    "夸父：元认知",
+    "0.1",
+    "Meta",
+    (
+      "intro.typ",
+      "resources.typ",
+      "reading.typ",
+      "sleep.typ",
+      "yoga.typ",
+      "exercise.typ",
+    )
   )
 
-  config.toc()
-  show: config.conf
-
-  include "intro.typ"
-  pagebreak()
-  include "resources.typ"
-  pagebreak()
-  include "sleep.typ"
-
-  config.reference()
 }

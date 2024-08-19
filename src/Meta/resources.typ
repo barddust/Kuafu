@@ -7,7 +7,7 @@
 我之前大学时获取信息是从各种各样的应用上来，比方说知乎、微信公众号等，随后呢发现了许多不便之处，简单说就是从这个平台获取信息之后，需要切换到另一个平台，如此甚是麻烦。于是想想有没有什么 All-in-one 的方案，可以将我所有的信息渠道汇总，而我只需要从一个入口接收即可。
 
 === RSS
-/ Rss: RSS (RDF Site Summary or Really Simple Syndication) is a web feed that allows users and applications to access updates to websites in a standardized, computer-readable format.@rss
+/ Rss: RSS (RDF Site Summary or Really Simple Syndication) is a web feed that allows users and applications to access updates to websites in a standardized, computer-readable format.
 
 它是一种开源的消息格式，主要用于获取更新，理论上说它应该只是提醒说该网站有新内容了，不过当然可以把更新的内容，比方说文章、图片放到里面进行传输。优点是方便集成（all-in-one），无冗余信息（如广告），灵活不受平台限制；而缺点很直接：并不是所有网站都支持
 
@@ -20,7 +20,7 @@
 对于一些碎片化的信息——大部分是新闻， RSS 完全足够；而对于一些文章，可以通过 newsletter 的方式获取。
 
 === Newsletter
-/ Newsletter: A newsletter is a printed or electronic report containing news concerning the activities of a business or an organization that is sent to its members, customers, employees or other subscribers.@newsletter
+/ Newsletter: A newsletter is a printed or electronic report containing news concerning the activities of a business or an organization that is sent to its members, customers, employees or other subscribers.
 
 主要是通过电子邮件的方式来获取，他可以是方方面面，新闻、杂志、类似个人公众号等等。 Newsletter 可能会有付费制的，但普通的文章都足够了，如前所述，真正想获取硬核的知识，还是得阅读和学习专业书籍，去听公开课、讲座等。
 

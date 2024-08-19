@@ -28,21 +28,21 @@
           linebreak()
         }
         linebreak()
-        
+
         if author != none {
           author
         } else {
           default_author
         }
         linebreak()
-        
+
         if date != none {
           date
         } else {
           datetime.today().display()
         }
         linebreak()
-        
+
         if version != none [
           V #version
         ]
@@ -67,7 +67,7 @@
       depth: 2,
       indent: auto,
     )
-    
+
   }
 )
 
@@ -96,7 +96,7 @@
   set heading(numbering: "1.")
   show heading: it => {
     set block(above: 2em, below: 1em)
-    
+
     if it.level == 1 {
       align(
         center,
@@ -105,7 +105,7 @@
           if counter(here()).get().at(0) != 1 {
             pagebreak()
           }
-        
+
           if it.numbering != none {
             if env-lang.get() == "zh" [
               第#counter(heading).get().at(0)章#h(1em)#it.body
@@ -124,23 +124,25 @@
     }
     par(text(size:0.35em, h(0.0em)))
   }
-  
+
   show quote: set text(font: kai)
   set quote(block: true)
+  set text(size: 14pt)
 
   show link: set text(fill: blue)
-  
+
   counter(page).update(1)
-  
+
   set par(
     first-line-indent: 2em,
+    justify: true,
     leading: 1em,
   )
 
   show ref: it => {
     super(it)
   }
-  
+
   doc
 }
 
@@ -153,7 +155,7 @@
   if not dir.ends-with("/"){
     dir = dir + "/"
   }
-  
+
   include dir + chs.at(0)
   for ch in chs.slice(1) {
     pagebreak()
@@ -173,7 +175,7 @@
 ) = {
 
   show: init
-  
+
   cover(
     title: title,
     subtitle: subtitle,
@@ -181,7 +183,7 @@
   )
 
   toc()
-  
+
   show: conf
 
   body(

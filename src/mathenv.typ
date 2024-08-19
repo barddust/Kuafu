@@ -124,3 +124,20 @@
 // Shorthands
 #let sub = math.subset
 #let sube = math.subset.eq
+#let NNN = $NN_+$
+#let LIM = math.op("LIM", limits: true)
+#let sim = math.tilde.op
+#let ind = {h(1em)}
+#let noin = doc => {
+  par(
+    first-line-indent: 0pt,
+    doc
+  )
+}
+#let pf(doc, num:1) = {
+  par(first-line-indent: 0pt, {
+    emph[Proof for #num]
+    h(1em)
+    doc
+  })
+}

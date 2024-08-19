@@ -1,0 +1,23 @@
+* Addition
+$$
+x + y = y + x
+x + (y + z) = (x + y) + z
+x = y <=> x + z = y + z
+$$
+
+* Multiplication
+$$
+x y = y x
+x (y z) = (x y) z
+x (y + z) = x y + x z
+x = y => x z = y z
+(z != 0  and x z = y z) => x = y
+a b = 0 => a = 0 or b = 0
+$$
+
+* Ordering
+$$a < b$
+$$
+a + c < b + c
+c > 0 a c < b c
+$$

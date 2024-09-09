@@ -391,9 +391,40 @@ There are several ways to build the real number system. I choose the method used
   $
 ]
 
-#definition(name: "Bounding of reals by rationals")[
+#proposition[
+  Let $a_n$ be a rational Cauchy sequence, and $a_n >= 0$ for all $n >= 1$. Then $LIM_(n -> oo) a_n >= 0$.
+]
+
+#proof[
+  For producing contradiction, suppose that $LIM_(n->oo)a_n < 0$. By definition,
+  $
+    forall n >= 1 exists c >0 ( in QQ)(a_n <= -c < 0)
+  $
+  This contradicts with the hypothesis that $a_n >=0$ for all $n>=1$.
+]
+
+#corollary[
+  Let $a_n$ and $b_n$ be Cauchy sequences of rationals such that $a_n >= b_n$ for all $n>=1$. Then $LIM_(n -> oo) a_n >= LIM_(n -> oo) b_n$.
+]
+
+#proof[
+  Let $c_n = a_n - b_n$. and hence $c_n >= 0$ for all $n>=1$.
+
+  By Corollary, we have that $LIM_(n -> oo) c_n >= 0$.
+]
+
+#proposition(name: "Bounding of reals by rationals")[
   Let $x>0$ be a real number. Then
   $
     exists q >0 (in QQ) exists N>0(in NN) (q <= x < N)
   $
+]
+
+#proof[
+  Let $x = LIM_(n -> oo) a_n$ for some rational Cauchy sequence $a_n$. And we have that $a_n$ is bounded, i.e., there exists rational numbers $r,q >0$ such that
+  $
+    q <= a_n <= r
+  $
+
+  And there *should* exists a national number
 ]

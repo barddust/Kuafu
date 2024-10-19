@@ -162,3 +162,9 @@
 #proof[
   Omitted.
 ]
+
+
+// == Gaps in the Rational Numbers
+// #proposition(name: "Interspersing of integers by rationals")[
+//   Let $x$ be a rational number. Then there exists an integer $n$ such that $n <= x < n +1$. In particular, there exists a natural number $N$ such that $N > x$.
+// ]

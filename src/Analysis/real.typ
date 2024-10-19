@@ -413,18 +413,92 @@ There are several ways to build the real number system. I choose the method used
   By Corollary, we have that $LIM_(n -> oo) c_n >= 0$.
 ]
 
-#proposition(name: "Bounding of reals by rationals")[
-  Let $x>0$ be a real number. Then
-  $
-    exists q >0 (in QQ) exists N>0(in NN) (q <= x < N)
-  $
+// #proposition(name: "Bounding of reals by rationals")[
+//   Let $x>0$ be a real number. Then
+//   $
+//     exists q >0 (in QQ) exists N>0(in NN) (q <= x < N)
+//   $
+// ]
+
+// #proof[
+//   Let $x = LIM_(n -> oo) a_n$ for some rational Cauchy sequence $a_n$. And we have that $a_n$ is bounded, i.e., there exists rational numbers $r,q >0$ such that
+//   $
+//     q <= a_n <= r
+//   $
+
+//   And there *should* exists a national number
+// ]
+
+// #corollary(name: "Archimedean property")[
+//   $
+//     forall r > 0 (in RR) exists N > 0 (in ZZ) ( r < N )
+//   $
+// ]
+
+== Dedekind Cut
+#definition[
+    Let $S sube RR$ and $r in RR$. We say that:
+    1. $r$ is an _upper(lower) bound_ of $S$ if $forall s in S ( r >= (<=) s )$;
+    2. $r$ is the _greatest(least) element_ of $S$, denoted as $max S (min R)$ if:
+      - $r$ is an _upper(lower) bound_ of $S$, and
+      - $r in S$;
+    3. $r$ is the _least upper(greatest lower) bound_ of $S$ if $r = min{u in RR | u text("is an upper(lower) bound of") S}$. In this case, we write $r = sup S (inf S)$.
+]
+
+#definition(name: "Dedekind cut")[
+  Let $A,B sube RR$. We say that $(A,B)$ is a Dedekind cut of $RR$ if:
+  1. $A != B != emptyset$,
+  2. $A union B = RR$, and
+  3. $forall a in A, b in B (a < b)$.
+]
+
+#proposition(name: "Dedekind's gapless property")[
+  If $(A,B)$ is a Dedekind cut of $RR$. Then exactly one of the following happens:
+  - $max A$ exists, but $min B$ doesn't;
+  - $min B$ exists, but $max A$ doesn't.
 ]
 
 #proof[
-  Let $x = LIM_(n -> oo) a_n$ for some rational Cauchy sequence $a_n$. And we have that $a_n$ is bounded, i.e., there exists rational numbers $r,q >0$ such that
-  $
-    q <= a_n <= r
-  $
+  Let $P_1$ be the statement of "$max A$ exists", and $P_2$ be the statement of "$min B$ exists". Then there may be four cases:
 
-  And there *should* exists a national number
+  1. $P_1 and P_2$;
+  2. $not P_1 and P_2$;
+  3. $P_1 and not P_2$;
+  4. $not P_1 and not P_2$.
+
+  Firstly, we are going to prove that case 1 and 4 are both false, and hence there are only two cases left. 
+  
+  Then we will show that exactly one of case 2 and 3 happens by proving that case 2 and 3 can be both neither true nor false at the same time.
+
+  For convenience, we write $x = max A, y = min B$.
+
+  #noin[*Step1*: To show that $P_1 and P_2$ is false.]
+  
+  Suppose $P_1 and P_2$ is ture, then $x, y$ exist.
+
+  有问题
+]
+
+#theorem(name: "Weierstrass")[
+  Let $S(!= emptyset) sube RR$. If $S$ has an upper bound, then $sup S$ exists. Accordingly, if $S$ has an lower bound, then $inf S$ exists.
+]
+
+#proof[
+  Let $B := {b in RR | b text("is an upper bound of") S}$, and $A := RR \\ B$.
+
+  $(A,B)$ is a Dedekind cut since
+  
+  1. $S != emptyset => A != emptyset$. And $B != emptyset$ since $S$ has an upper bound;
+  2. $A union B = RR$ by definition;
+  3. $forall a in A, b in B ( a < b )$ by definition,
+
+  #ind[Suppose that $max A$ exists, denoted as $a_0$. Then $a_0 in A$, $a_0 in.not B$, which means $a_0$ is not an upper bound of $A$. So that we can find some element $s_0 in S$ such that $s_0 > a_0$. This is a contradiction.]
+
+  Therefore, $max A$ doesn't exist.
+
+  By Dedekind's gapless property, $min B$ must exist, i.e., $sup S$ exists.
+]
+
+#proposition(name: "Archimedean property")[
+  $forall r in RR ( r > 0 => exists n in NN ( r < n ))$.
 ]

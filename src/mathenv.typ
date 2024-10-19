@@ -127,7 +127,12 @@
 #let NNN = $NN_+$
 #let LIM = math.op("LIM", limits: true)
 #let sim = math.tilde.op
-#let ind = {h(1em)}
+#let ind = doc => {
+  {
+    h(2em)
+   doc
+  }
+}
 #let noin = doc => {
   par(
     first-line-indent: 0pt,

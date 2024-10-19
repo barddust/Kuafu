@@ -12,9 +12,9 @@
       "natural.typ",
       "integer.typ",
       "rational.typ",
-      "real.typ"
+      "real.typ",
+      "sequence.typ"
     ),
     bio: false
   )
-
 }
